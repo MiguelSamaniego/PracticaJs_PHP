@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="../../css/formulario.css" />
+</head>
+<body>
+    <section>
+        <form  method="POST" action="../controladores/registro_controlador.php">
+            <input  class="texto"type="email" name="correo" id= "correo" placeholder="Ingrese su correo">   
+            <input class="texto" type="password" name="contrasenia" id= "contrasenia" placeholder="Ingresa su contraseña"> 
+            <input class="texto" type="password" name="contrasenia2" id= "contrasenia2" placeholder="Ingresa su contraseña nuevamente"> 
+            <label>
+                <input type="radio" class="form-check-input" name="rol" id="Cliente" value="C" checked="Cliente">
+                Cliente
+            </label>
+            <label>
+                <input type="radio" class="form-check-input" name="rol" id="Restaurante" value="R" checked="Restaurante">
+                Restaurante
+            </label>
+            <input class="boton" type="submit" name="submit" id= "submit" placeholder="Enviar">   
+            
+         </form>
+    </section>
+    
+</body>
+</html>
