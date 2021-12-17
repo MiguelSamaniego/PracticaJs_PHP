@@ -1,12 +1,12 @@
 <?php 
    include '../../conf/conexionBD.php';
-   echo "El codigo es :".$_GET["codig"];
+  // echo "El codigo es :".$_GET["codig"];
    $var=$_GET["codig"];
-   echo $var;
+  // echo $var;
    $coP=(int)($var);
-   echo $coP;
+   //echo $coP;
    $c=intval($_GET["codig"]);
-   echo $c;
+   //echo $c;
    $sql="SELECT * FROM productos WHERE res_codigo_fk=$c";
    $restaurantes=$coon->query($sql);
    //echo $sql;
@@ -29,13 +29,7 @@
 <body>
 <nav class="navbar navbar-expand navbar-light bg-light">
     <ul class="nav navbar-nav">
-    <li class="nav-item active"> 
-            <a class="nav-link" href="#">CLiente</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="pedidos.php">Administrar Pedidos </a>
-        </li>
-        
+    
         <li class="nav-item">
             <a class="nav-link" href="../../index.html">Salir</a>
         </li>
@@ -51,16 +45,16 @@ $txtPresio = (isset($_POST['txtPresio'])) ? $_POST['txtPresio'] : "";
 $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 $precio = doubleval($txtPresio);
 $arreglo= array();
-$totals= array();
-echo $txtCodigo;
+$total3s= array();
+//echo $txtCodigo;
 include '../../conf/conexionBD.php';
 switch ($accion) {
     case 'Agregar':
         $subtotal= (int)($txtCantidad)*$precio;
         $arreglo= [$txtCodigo,$txtCantidad,$txtPresio,$subtotal];
-        $total[]=$arreglo;
-        foreach($total as $t){
-            echo "<li>$t[0]</li>";
+        $total3s[]=$arreglo;
+        foreach($total3s as $t){
+           // echo "<li>$t[0]</li>";
         }
         break;
     case 'Comprar':
@@ -71,9 +65,13 @@ switch ($accion) {
         $sentenciaSQL = "INSERT INTO pedido_cabecera VALUES (0,$fecha,$cabSubtotal,$Iva,$total,1,1)";
         $Seleccionado = $coon->query($sentenciaSQL);
         if ($coon->query($sentenciaSQL) === TRUE) {
-                echo 'Exitoso';
+                foreach($total3s as $t){
+                    $sentenciaSQL = "INSERT INTO pedido_detalle VALUES (0,1,$cabSubtotal,$total,1,1)";
+                    $Seleccionado = $coon->query($sentenciaSQL);
+                }
+                
         }else{
-            echo 'NO cargo';
+           // echo 'NO cargo';
         }
         break;
     case 'Cancelar':

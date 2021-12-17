@@ -1,6 +1,6 @@
 
 <?php 
-//  echo "Bienvenido ".$_GET["codigo"]." al restaurante de nombre ".$_GET["nombre"]." de direccion ".$_GET["direccion"]." y telefono ".$_GET["telefono"];
+  echo "Bienvenido ".$_GET["codigo"]." al restaurante de nombre ".$_GET["nombre"]." de direccion ".$_GET["direccion"]." y telefono ".$_GET["telefono"];
  // $codigo=$_GET["codigo"];
   //$nombre=$_GET["nombre"];
   //$direccion=$_GET["direccion"];
@@ -20,6 +20,10 @@
 <body>
 <nav class="navbar navbar-expand navbar-light bg-light">
     <ul class="nav navbar-nav">
+    
+        <li class="nav-item active">
+            <a class="nav-link" href="principal_restaurante.php">Administrar Productos </a>
+        </li>
         
         <li class="nav-item">
             <a class="nav-link" href="../../index.html">Salir</a>
@@ -37,7 +41,7 @@ $txtPresio = (isset($_POST['txtPresio'])) ? $_POST['txtPresio'] : "";
 $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 $precio = doubleval($txtPresio);
 $c=(int)($_GET["codRes"]);
-echo $txtCodigo;
+//echo $txtCodigo;
 include '../../conf/conexionBD.php';
 switch ($accion) {
     case 'Agregar':
@@ -48,8 +52,8 @@ switch ($accion) {
         }
         header('Locatio:platillos.php');
         break;
-    case 'Modificar':
-        $sentenciaSQL = "UPDATE productos SET pro_nombre='$txtNombre', pro_descripcion='$txtDescripcion', pro_precio='$precio' WHERE pro_codigo='$txtCodigo' ";
+    case "Modificar" :
+        $sentenciaSQL = "UPDATE productos SET pro_nombre= '$txtNombre' WHERE pro_codigo=$txtCodigo ";
         $Seleccionado = $coon->query($sentenciaSQL);
         break;
     case 'Cancelar':
@@ -57,17 +61,25 @@ switch ($accion) {
     case 'Selecionar':
         $sentenciaSQL = "SELECT * FROM productos WHERE pro_codigo=$txtCodigo ";
         $Seleccionado = $coon->query($sentenciaSQL);
-        foreach ($Seleccionado as $productoss) {
-            $txtNombre = $productoss['pro_nombre'];
+
+        foreach ( $Seleccionado as $productoss) {
+            $txtNombre = $productoss['pro_nombre']; 
             $txtDescripcion = $productoss['pro_descripcion'];
             $txtPresio = $productoss['pro_precio'];
             $txtCodigo = $productoss['pro_codigo'];
+            
         }
-       
+
+
         break;
-    case 'Borrar':
+    case 'Eliminar':
         $sentenciaSQL = "DELETE FROM productos WHERE pro_codigo=$txtCodigo ";
         $Seleccionado = $coon->query($sentenciaSQL);
+        if($coon->query($sentenciaSQL) ==TRUE){
+           //  echo "Eliminado";
+        }else{
+            //echo "no eliminado";
+        }
         break;
 }
 
@@ -129,7 +141,7 @@ $listado = $coon->query($sentenciaSQL);
                     <td><?php echo $producto['pro_precio']; ?></td>
                     <td>
                         <form method="POST">
-                            <input type="hidden" name="accion" id="txtCodigo" value="<?php echo $producto['pro_codigo']; ?>" />
+                            <input type="hidden" name="txtCodigo" id="txtCodigo" value="<?php echo $producto['pro_codigo']; ?>" />
                             <input type="submit" name="accion" value="Selecionar" class="btn btn-success">
                             <input type="submit" name="accion" value="Eliminar" class="btn btn-danger">
                         </form>

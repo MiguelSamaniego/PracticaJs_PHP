@@ -13,12 +13,6 @@
 <body>
 <nav class="navbar navbar-expand navbar-light bg-light">
     <ul class="nav navbar-nav">
-    <li class="nav-item active"> 
-            <a class="nav-link" href="#">CLiente</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="pedidos.php">Administrar Pedidos </a>
-        </li>
         
         <li class="nav-item">
             <a class="nav-link" href="../../index.html">Salir</a>
