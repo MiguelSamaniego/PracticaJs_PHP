@@ -37,6 +37,7 @@
    
     if ($coon->query($sql) === TRUE) {
         echo "<h1>Usuario Creado</h1>";
+        
         header("Location:../../Cliente/vista/principal_cliente.php?codigo=$max");
     } else {
         if ($coon->errno == 1062) {
