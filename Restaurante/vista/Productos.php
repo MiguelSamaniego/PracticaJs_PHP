@@ -20,7 +20,7 @@
             <a class="nav-link" href="principal_restaurante.php">Principal</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="Productos.php">Administrar Productos </a>
+            <a class="nav-link" href="pedidos.php">Administrar Productos </a>
         </li>
         
         <li class="nav-item">

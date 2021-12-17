@@ -14,10 +14,10 @@
 <nav class="navbar navbar-expand navbar-light bg-light">
     <ul class="nav navbar-nav">
     <li class="nav-item active"> 
-            <a class="nav-link" <?php header("Location:principal_restaurante.php"); ?>><?php echo $_GET["nombre"] ?></a>
+            <a class="nav-link" href="#">CLiente</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="Productos.php">Administrar Productos </a>
+            <a class="nav-link" href="Productos.php">Administrar Pedidos </a>
         </li>
         
         <li class="nav-item">
