@@ -1,31 +1,33 @@
-
-<?php echo $_GET["codigo"] ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cliente</title>
+    <title>Document</title>
+    
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="../../css/formulario.css" />
 </head>
 <body>
-<nav class="navbar navbar-expand navbar-light bg-light">
-    <ul class="nav navbar-nav">
-    <li class="nav-item active"> 
-            <a class="nav-link" href="#">CLiente</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="pedidos.php">Administrar Pedidos </a>
-        </li>
-        
-        <li class="nav-item">
-            <a class="nav-link" href="../../index.html">Salir</a>
-        </li>
-    </ul>
-</nav>
-<?php 
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <ul class="nav navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="../../index.html">Inicio </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="registro.html">Registrate</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ver_restaurantes.php">Ver Restaurantes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="IniciarSesion.html">Iniciar Sesion</a>
+            </li>
+        </ul>
+    </nav>
+   <?php 
    include '../../conf/conexionBD.php';
    $sql="SELECT * FROM restaurante";
    $restaurantes=$coon->query($sql);
@@ -33,7 +35,7 @@
    $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
    switch ($accion) {
     case "Selecionar":
-        header("Location:hacer_pedidos.php?codig=$txtCodigo");
+        header("Location:ver_productos.php?codig=$txtCodigo");
         break;
     }   
         
@@ -67,5 +69,6 @@
             <?php } ?>
         </tbody>
     </table>
+
 </body>
 </html>

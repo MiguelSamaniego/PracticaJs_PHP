@@ -27,12 +27,13 @@
             $newSql= "SELECT * FROM restaurante WHERE usu_codigo_fk_res=$cod";
             $datosRestaurante=$coon->query($newSql); 
             foreach($datosRestaurante as $res){
+                $codigoRestaurante=$res["res_codigo"];
                 $nombreRestaurante=$res["res_nombre"];
                 $direccionRestaurante=$res["res_direccion"];
                 $telefonoRestaurante=$res["res_telefono"];
             }
 
-            header("Location:../../Restaurante/vista/principal_restaurante.php?codigo=$cod&nombre=$nombreRestaurante&direccion=$direccionRestaurante&telefono=$telefonoRestaurante");
+            header("Location:../../Restaurante/vista/principal_restaurante.php?codigo=$cod&nombre=$nombreRestaurante&direccion=$direccionRestaurante&telefono=$telefonoRestaurante&codRes=$codigoRestaurante");
             echo "<p>restautante</p>";
 
 

@@ -35,6 +35,7 @@
    
     if ($coon->query($sql) === TRUE) {
         echo "<h1>Restaurante Creado</h1>";
+        header("Location:../../Restaurante/vista/principal_restaurante.php?codRes=$max&nombre=$nombre&direccion=$direccion&telefono=$telefono");
     } else {
         if ($coon->errno == 1062) {
             echo "<p class='error'>La persona con la cedula $correo ya esta registrada en el sistema </p>";
