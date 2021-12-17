@@ -28,21 +28,16 @@
         </ul>
     </nav>
     <section>
-        <form  method="POST" action="../controladores/registro_controlador.php">
-            <input  class="texto"type="email" name="correo" id= "correo" placeholder="Ingrese su correo">   
-            <input class="texto" type="password" name="contrasenia" id= "contrasenia" placeholder="Ingresa su contraseña"> 
-            <input class="texto" type="password" name="contrasenia2" id= "contrasenia2" placeholder="Ingresa su contraseña nuevamente"> 
-            <label>
-                <input type="radio" class="form-check-input" name="rol" id="Cliente" value="C" checked="Cliente">
-                Cliente
-            </label>
-            <label>
-                <input type="radio" class="form-check-input" name="rol" id="Restaurante" value="R" checked="Restaurante">
-                Restaurante
-            </label>
-            <input class="boton" type="submit" name="submit" id= "submit" placeholder="Enviar">   
-            
-         </form>
+        <nav class="navbar navbar-expand navbar-light bg-light">
+            <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="Productos.php">Pedidos </a>
+                </li>       
+                <li class="nav-item">
+                    <a class="nav-link" href="../../index.html">Salir</a>
+                </li>
+            </ul>
+        </nav>
     </section>
     
 </body>

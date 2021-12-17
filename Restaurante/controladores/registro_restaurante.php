@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Crear Nuevo Cliente</title>
+    <title>Crear Nuevo Restaurante</title>
     <style type="text/css" rel="stylesheet">
         .error {
             color: red;
@@ -17,9 +17,7 @@
     //incluir conexión a la base de datos
 
     include '../../conf/conexionBD.php';
-    $cedula = isset($_POST["cedula"]) ? trim($_POST["cedula"]) : null;
     $nombre = isset($_POST["nombre"]) ? trim($_POST["nombre"]) : null;
-    $apellido = isset($_POST["apellido"]) ? trim($_POST["apellido"]) : null;
     $direccion = isset($_POST["direccion"]) ? trim($_POST["direccion"]) : null;
     $telefono = isset($_POST["telefono"]) ? trim($_POST["telefono"]) : null;
     //$busqueda_cod_usu= "SELECT MAX(usu_codigo) FROM usuario ";
@@ -33,10 +31,10 @@
        }
     }
     echo $max;
-    $sql = "INSERT INTO cliente VALUES (0, '$cedula', '$nombre','$apellido','$direccion','$telefono', $max)";
+    $sql = "INSERT INTO restaurante VALUES (0, '$nombre','$direccion','$telefono', $max)";
    
     if ($coon->query($sql) === TRUE) {
-        echo "<h1>Usuario Creado</h1>";
+        echo "<h1>Restaurante Creado</h1>";
     } else {
         if ($coon->errno == 1062) {
             echo "<p class='error'>La persona con la cedula $correo ya esta registrada en el sistema </p>";

@@ -24,13 +24,16 @@
     if ($coon->query($sql) === TRUE) {
         if ($rol== 'R') {
             echo "<p>Restaurante</p>";
+            header("Location:../../Restaurante/vista/registro_restaurante.html");
             
         }elseif($rol== 'C'){
             echo "<p>Cliente</p>";
             header("Location:../../Cliente/vista/registro_cliente.html");
+            
         }
         else{
             echo "<p>No funciono</p>";
+            
         }
     } else {
         if ($coon->errno == 1062) {
